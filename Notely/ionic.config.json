@@ -1,0 +1,7 @@
+{
+  "name": "Notely",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular-standalone"
+}

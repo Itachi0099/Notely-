@@ -1,0 +1,124 @@
+/*
+ * App Global CSS
+ * ----------------------------------------------------------------------------
+ * Put style rules here that you want to apply globally. These styles are for
+ * the entire app and not just one component. Additionally, this file can be
+ * used as an entry point to import other CSS files to be included in the
+ * output CSS.
+ * For more information on global stylesheets, visit the documentation:
+ * https://ionicframework.com/docs/layout/global-stylesheets
+ */
+
+/* Core CSS required for Ionic components to work properly */
+@import "@ionic/angular/css/core.css";
+
+/* Basic CSS for apps built with Ionic */
+@import "@ionic/angular/css/normalize.css";
+@import "@ionic/angular/css/structure.css";
+@import "@ionic/angular/css/typography.css";
+@import '@ionic/angular/css/display.css';
+
+/* Optional CSS utils that can be commented out */
+@import "@ionic/angular/css/padding.css";
+@import "@ionic/angular/css/float-elements.css";
+@import "@ionic/angular/css/text-alignment.css";
+@import "@ionic/angular/css/text-transformation.css";
+@import "@ionic/angular/css/flex-utils.css";
+
+/* Custom Alert Styles */
+.custom-alert {
+  --backdrop-opacity: 0.8;
+  --width: 90%;
+  --max-width: 500px;
+  --border-radius: 16px;
+  --background: var(--ion-background-color);
+  opacity: 0;
+  transform: scale(0.9);
+  transition: all 0.3s ease;
+}
+
+.custom-alert.animate-in {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.custom-alert .alert-wrapper {
+  border-radius: 16px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+}
+
+.custom-alert .alert-head {
+  padding: 20px 20px 10px;
+  text-align: center;
+}
+
+.custom-alert .alert-title {
+  font-size: 22px;
+  font-weight: 600;
+  color: var(--ion-text-color);
+}
+
+.custom-alert .alert-input-group {
+  padding: 0 20px;
+}
+
+.custom-input {
+  margin: 10px 0;
+  border-radius: 8px !important;
+  background: rgba(var(--ion-color-primary-rgb), 0.1) !important;
+  color: var(--ion-text-color) !important;
+  font-size: 16px !important;
+  padding: 12px !important;
+  border: 1px solid var(--ion-border-color) !important;
+}
+
+.custom-textarea {
+  margin: 10px 0;
+  border-radius: 8px !important;
+  background: rgba(var(--ion-color-primary-rgb), 0.1) !important;
+  color: var(--ion-text-color) !important;
+  font-size: 16px !important;
+  padding: 12px !important;
+  min-height: 150px !important;
+  border: 1px solid var(--ion-border-color) !important;
+}
+
+.custom-button-save {
+  --background: var(--ion-color-primary) !important;
+  --color: var(--ion-color-primary-contrast) !important;
+  font-weight: 600 !important;
+  font-size: 16px !important;
+}
+
+.custom-button-cancel {
+  --color: var(--ion-color-medium) !important;
+  font-size: 16px !important;
+}
+
+.custom-button-delete {
+  --background: var(--ion-color-danger) !important;
+  --color: var(--ion-color-danger-contrast) !important;
+  font-weight: 600 !important;
+  font-size: 16px !important;
+}
+
+.alert-button-group {
+  padding: 20px !important;
+}
+
+/* Input focus effects */
+.custom-input:focus, .custom-textarea:focus {
+  border-color: var(--ion-color-primary) !important;
+  box-shadow: 0 0 0 2px rgba(var(--ion-color-primary-rgb), 0.2) !important;
+}
+
+/**
+ * Ionic Dark Mode
+ * -----------------------------------------------------
+ * For more info, please see:
+ * https://ionicframework.com/docs/theming/dark-mode
+ */
+
+/* @import "@ionic/angular/css/palettes/dark.always.css"; */
+/* @import "@ionic/angular/css/palettes/dark.class.css"; */
+@import '@ionic/angular/css/palettes/dark.system.css';

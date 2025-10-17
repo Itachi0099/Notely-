@@ -1,0 +1,63 @@
+<ion-header [translucent]="true" class="ion-no-border">
+  <ion-toolbar>
+    <ion-title class="ion-text-center">
+      <strong style="letter-spacing: -0.5px; font-weight: 600;">Notely</strong>
+    </ion-title>
+    <ion-buttons slot="end">
+      <ion-select 
+        [value]="sortOrder" 
+        (ionChange)="changeSortOrder($event)"
+        interface="popover"
+        aria-label="Sort order">
+        <ion-select-option value="newest">Newest First</ion-select-option>
+        <ion-select-option value="oldest">Oldest First</ion-select-option>
+        <ion-select-option value="alphabetical">A-Z</ion-select-option>
+      </ion-select>
+    </ion-buttons>
+  </ion-toolbar>
+  <ion-toolbar>
+    <ion-searchbar 
+      placeholder="Search notes..." 
+      (ionInput)="onSearch($event)"
+      [debounce]="300"
+      animated="true">
+    </ion-searchbar>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <!-- Empty state message -->
+  <div *ngIf="notes.length === 0" class="empty-state">
+    <ion-icon name="document-text-outline" class="empty-state-icon"></ion-icon>
+    <ion-text>
+      <h2>Your notes will appear here</h2>
+      <p>Tap the + button below to create your first note</p>
+    </ion-text>
+  </div>
+
+  <!-- Notes list -->
+  <ion-list *ngIf="notes.length > 0">
+    <ion-item-sliding *ngFor="let note of notes">
+      <ion-item (click)="openEditModal(note)">
+        <ion-label>
+          <h2>{{ note.title }}</h2>
+          <p>{{ note.content | slice:0:100 }}{{ note.content.length > 100 ? '...' : '' }}</p>
+          <ion-note>{{ note.updatedAt | date:'short' }}</ion-note>
+        </ion-label>
+      </ion-item>
+      
+      <ion-item-options side="end">
+        <ion-item-option color="danger" (click)="deleteNote(note.id)">
+          <ion-icon slot="icon-only" name="trash"></ion-icon>
+        </ion-item-option>
+      </ion-item-options>
+    </ion-item-sliding>
+  </ion-list>
+
+  <!-- Add note button -->
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed" class="add-button">
+    <ion-fab-button (click)="openAddModal()">
+      <ion-icon name="add"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+</ion-content>
